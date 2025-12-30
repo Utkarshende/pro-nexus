@@ -14,11 +14,14 @@ const app = express();
 // 3. Middlewares
 app.use(cors()); // Allows your Frontend (Port 5173) to talk to your Backend (Port 5000)
 app.use(express.json()); // Allows the server to understand JSON data sent in a request
+app.use('/api/projects', require('./routes/projectRoutes'));
 
 // 4. Basic Test Route
 app.get('/', (req, res) => {
   res.send('Pro-Nexus API is running smoothly...');
 });
+
+
 
 // 5. Port Configuration
 const PORT = process.env.PORT || 5000;
